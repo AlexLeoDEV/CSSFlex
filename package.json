@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp start",
+    "build": "concurrently \"rimraf dist\" \"gulp build\"",
+    "dev": "gulp run:dev",
+    "uninstall": "rimraf node_modules"
   },
   "keywords": [
     "scss",
@@ -15,8 +17,11 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "concurrently": "^5.3.0",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.1.0",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "rimraf": "^3.0.2"
   }
 }
