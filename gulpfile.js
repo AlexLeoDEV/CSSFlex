@@ -44,7 +44,7 @@ gulp.task('browserSync', function() {
     })
 })
 
-gulp.task('run:dev', gulp.parallel(['sass:dev', 'browserSync'], function () {
+gulp.task('run:dev', gulp.parallel(['browserSync', 'sass:dev'], function () {
     gulp.watch('src/scss/**/*.scss', gulp.series(['sass:dev']));
     gulp.watch('src/**/*.html', browserSync.reload);
 }));
