@@ -9,7 +9,7 @@ sass.compiler = require('node-sass');
 gulp.task('sass:compile', function () {
     return gulp.src('src/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('src/css'))
+        .pipe(gulp.dest('src/style'))
 });
 
 gulp.task('compose', function () {
@@ -28,9 +28,9 @@ gulp.task('start', gulp.series(['build'], function() {
 }));
 
 gulp.task('sass:dev', function () {
-    return gulp.src('src/scss/**/*.scss')
+    return gulp.src('src/style/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('src/css'))
+        .pipe(gulp.dest('src/style'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -45,6 +45,6 @@ gulp.task('browserSync', function() {
 })
 
 gulp.task('run:dev', gulp.parallel(['browserSync', 'sass:dev'], function () {
-    gulp.watch('src/scss/**/*.scss', gulp.series(['sass:dev']));
+    gulp.watch('src/style/**/*.scss', gulp.series(['sass:dev']));
     gulp.watch('src/**/*.html', browserSync.reload);
 }));
